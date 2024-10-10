@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Dataset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/current_dataset.css') }}">
+</head>
+{% extends "layout.html" %}
+{% block body %}
+<body>
+    <div class="form-container">
+        <form method="post" action="/predict">
+            <input type="submit" value="Generate Predictions"/>
+        </form>
+        <form method="post" action="/clear-dataset">
+            <input type="submit" value="Clear Current Dataset"/>
+        </form>
+    </div>
+    <div class="grid-container">
+        {% for image in images %}
+        <div class="grid-item">
+            <a href="{{ url_for('static', filename='uploaded_images/' + image)}}">
+                <img class="image" src="{{ url_for('static', filename='uploaded_images/' + image)}}"/>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock %}

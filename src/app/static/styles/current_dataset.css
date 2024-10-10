@@ -1,0 +1,31 @@
+.form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+input:hover {
+    background-color: darkgreen;
+}
+
+.grid-container {
+    display: inline-grid;
+    padding: 10px;
+    grid-template-columns: auto auto auto;
+    column-gap: 50px;
+    row-gap: 50px;
+}
+
+img {
+    height: 640px;
+    width: 640px;
+}

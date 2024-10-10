@@ -1,0 +1,10 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/upload-images">Upload Images</a>
+    <a href="/current-dataset">Current Dataset</a>
+    <a href="/predictions">Model Predictions</a>
+    <a href="#about" class="split">Help</a>
+</div>
+{% block body %}{% endblock %}

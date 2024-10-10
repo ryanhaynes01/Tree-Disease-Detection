@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/prediction_details.css') }}">
+</head>
+{% extends "layout.html" %}
+{% block body %}
+
+<body>
+    <div class="data-container">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='image_predictions/' + image)}}">
+        </div>
+        <div class="details-container">
+            <ul>
+                <li>Image Name: {{ data['image_name'] }}</li>
+                <li>Latitude: {{ data['latitude'] }}</li>
+                <li>Longitude: {{ data['longitude'] }}</li>
+                <li>Unique Classifications: {{ data['found_classifications'] }}</li>
+                <li>Number of Detections: {{ data['number_of_bboxes'] }}</li>
+                <li>Pixel Density of Detected Disease (%): {{ data['screen_density'] }}</li>
+                {% for item in data['box_details'] %}
+                <details>
+                    <summary>Box {{ item['id'] }} Details</summary>
+                    Classification: {{ item['class'] }} <br/>
+                    Confidence: {{ item['confidence'] }} <br/>
+                    xmin: {{ item['box'][0] }} <br/>
+                    ymin: {{ item['box'][1] }} <br/>
+                    xmax: {{ item['box'][2] }} <br/>
+                    ymax: {{ item['box'][3] }}
+                </details>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
